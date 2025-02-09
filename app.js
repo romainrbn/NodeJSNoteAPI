@@ -2,15 +2,18 @@ const express = require('express');
 const mongoose = require('mongoose');
 const http = require('http');
 const { Server } = require('socket.io');
+require('dotenv').config();
 
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
 const port = process.env.port || 3000;
 
+const MONGO_URI = process.env.MONGO_URI;
+
 app.use(express.json());
 
-mongoose.connect('mongodb+srv://romainrabouan1mongo:7Fzrdb20J6CrTI84@cluster0.glkcw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
+mongoose.connect(MONGO_URI)
 .then(() => console.log('Connected to MongoDB'))
 .catch((err) => console.error('Error connecting to MongoDB:', err));
 
