@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const http = require('http');
 const { Server } = require('socket.io');
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
 const app = express();
 const server = http.createServer(app);
