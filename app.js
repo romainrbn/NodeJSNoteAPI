@@ -1,8 +1,8 @@
 require('dotenv').config();
 const express = require('express');
+const mongoose = require('mongoose');
 const http = require('http');
 const { Server } = require('socket.io');
-const mongoose = require('mongoose');
 const { authenticateToken } = require('./middleware/auth');
 const userRoutes = require('./routes/user');
 const noteRoutes = require('./routes/note');
